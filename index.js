@@ -3,7 +3,7 @@ const http = require('http');
 const socketIO = require('socket.io');
 const mongoose = require('mongoose');
 const Chat = require('./models/message'); // Import Chat model for messages
-
+const User = require('./models/user');
 const app = express();
 const port = 8000;
 
@@ -40,9 +40,7 @@ io.on('connection', (socket) => {
     }
   });
 
-  socket.on('disconnect', () => {
-    console.log('A user disconnected:', socket.id);
-  });
+
 });
 
 // Start the Socket.IO server
