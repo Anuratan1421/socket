@@ -36,7 +36,7 @@ mongoose
     console.log('Error connecting to MongoDB', error);
   });
 
-app.listen(port, () => {
+http.listen(port, () => {
   console.log('Server is running on 3000');
 });
 
@@ -591,9 +591,9 @@ io.use((socket, next) => {
 
 
 
-http.listen(9000, () => {
-  console.log('Socket.IO server running on port 9000');
-});
+// http.listen(9000, () => {
+//   console.log('Socket.IO server running on port 9000');
+// });
 
 app.get('/messages', async (req, res) => {
   try {
