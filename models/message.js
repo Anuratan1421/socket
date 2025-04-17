@@ -42,7 +42,42 @@ const chatSchema = new mongoose.Schema({
   timestamp: {
     type: Date,
     default: Date.now,
+
+
+
+
+
   },
+
+
+
+
+  
+    senderId: {
+      type: String,
+      required: true,
+    },
+    receiverId: {
+      type: String,
+      required: true,
+    },
+    message: {
+      type: String,
+    },
+    imageUrl: {
+      type: String,
+    },
+    musicData: {
+      type: Object,
+    },
+    timestamp: {
+      type: Date,
+      default: Date.now,
+    },
+
+
+
+
 });
 
 // Add pre-save hook to encrypt messages before saving and validate message or imageUrl
@@ -89,3 +124,5 @@ chatSchema.methods.decryptMessage = async function () {
 const Chat = mongoose.model("Chat", chatSchema);
 
 module.exports = Chat;
+
+
