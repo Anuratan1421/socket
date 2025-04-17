@@ -136,6 +136,20 @@ const userSchema = new Schema({
   notificationPreferences: {
     // Define notification preferences here
   },
+  
+  
+  embedding: {
+    type: [Number], // Array of numbers (vector)
+    default: [],    // Optional default
+    validate: {
+      validator: arr => Array.isArray(arr) && arr.every(n => typeof n === 'number'),
+      message: 'Embedding must be an array of numbers',
+    },
+  },
+  
+
+
+
   encryptionKey: { type: String, required: true },
   crossedProfiles: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
 });
